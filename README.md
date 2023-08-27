@@ -1,1 +1,1 @@
-# Bash-loading-animations-
+So basically this is a bash script that makes a loading anmiation with a rotating bar. Idk getting shitty ass ideas to use it ve this script to a file (e.g., loading_animation.sh), make it executable.and then run it with ./loading_animation.sh. That's it!

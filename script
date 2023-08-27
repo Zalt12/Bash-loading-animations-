@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Function to print loading animation
+print_loading_animation() {
+    local pid=$1
+    local delay=0.1
+    local chars="⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏"
+    local i=0
+    
+    while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
+        local char="${chars:i++%${#chars}:1}"
+        printf " $char "
+        sleep $delay
+        printf "\b\b\b"
+    done
+}
+
+# Simulating a process with sleep
+simulate_process() {
+    sleep 5
+}
+
+echo "Running a simulated process..."
+simulate_process & # Run the process in the background
+print_loading_animation $! # Pass the process ID to the loading animation function
+echo "Process complete!"
